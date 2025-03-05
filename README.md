@@ -2,12 +2,18 @@
 
 SearchBook è un'applicazione web che permette agli utenti di cercare libri in base alla categoria desiderata, come ad esempio fantasy, horror, romance e molte altre. Una volta trovati i libri, è possibile visualizzare la descrizione dettagliata di ciascuno.
 
+![Screenshot della pagina](./assets/img/Screenshot%202025-03-05%20152111.png)
+
+
 ## Funzionalità
 
 - **Ricerca libri per categoria**: inserisci una categoria (ad esempio, "fantasy" o "storia") e trova una lista di libri correlati.
 - **Visualizzazione della descrizione**: cliccando su "Mostra descrizione" puoi scoprire maggiori dettagli su ogni libro.
 - **Scroll rapido**: un pulsante permette di tornare rapidamente all'inizio della pagina.
 - **Aggiorna la pagina**: cliccando su "SearchBook" nel menu superiore si ricarica la pagina.
+
+![Screenshot della pagina](./assets/img/Screenshot%202025-03-05%20152311.png)
+
 
 ## Tecnologie utilizzate
 
