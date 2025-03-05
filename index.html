@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SearchBook</title>
+    <link rel="icon" href="./assets/img/bookshelf_1470368.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <meta property="og:title" content="SearchBook - Trova Libri per Categoria">
+    <meta property="og:description" content="Cerca libri in base alla categoria che preferisci, come fantasy, horror, romance e molto altro!">
+    <meta property="og:image" content="./assets/img/bookshelf_1470368.png">
+    <meta property="og:url" content="https://www.tuosito.it"> <!-- Sostituisci con l'URL reale del tuo sito -->
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navBar">
+                <li><a class="active" href="./index.html">SearchBook</a></li>
+                <li><a href="https://adriana-rs.github.io">adriana-rs</a></li>
+            </ul>
+        </nav>
+    </header>
+    <a href="https://it.freepik.com/" target="_blank" rel="noopener noreferrer">
+        <img src="./assets/img/bookshelf_1470368.png" alt="immagini di libri su una mensola">
+    </a>
+    <main>
+        <div id="intro">
+            <h1>Benvenuto nell'applicazione di ricerca libri!</h1>
+            <h3>Istruzioni:</h3>
+            <p>Questa app ti permette di cercare libri in base alla categoria che inserisci. Inserisci una categoria, ad esempio "fantasy" o "storia", per visualizzare un elenco di libri correlati.</p>
+            <p>Puoi anche cliccare su "Mostra descrizione" per scoprire maggiori dettagli su ogni libro.</p>
+            <p>Inoltre, puoi utilizzare il pulsante in basso a destra per tornare rapidamente all'inizio della pagina o cliccare su SearchBook in alto a sinistra per aggiornare la pagina.</p>
+        </div>
+        
+        <input type="text" id="categoryInput" placeholder="Es: fantasy, horror, romance..." name="category">
+        <button onclick="searchBook()">Cerca</button>
+
+        <div id="loading" class="hidden">⏳</div>
+
+        <h2>Libri trovati:</h2>
+        <ul id="bookList"></ul>
+
+        <h3>Descrizione del libro:</h3>
+        <div id="description" class="description">
+            <p id="bookDescription"></p>
+        </div>
+    </main>
+    <button id="scroll">⬆️</button>
+
+    <footer id="app-footer">
+        <div class="footer-links">
+            <p>&copy; 2025 SearchBook. Tutti i diritti riservati.</p>
+            <a href="https://github.com/adriana-rs" target="_blank" rel="noopener noreferrer">GitHub</a> | 
+            <a href="https://linkedin.com/in/adriana-rs1805" target="_blank" rel="noopener noreferrer">LinkedIn</a> | 
+            <a href="https://www.facebook.com/Tony.Adry" target="_blank" rel="noopener noreferrer">Facebook</a> |  
+            <a href="https://www.instagram.com/adrianars20/profilecard/?igsh=eW42cXphbTdseGRp" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+    </footer>    
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

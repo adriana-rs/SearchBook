@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #202124;
+    line-height: 1.6;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+}
+
+img {
+    width: 15%;
+    max-width: 200px;
+    display: block;
+    margin: 40px auto; 
+}
+
+#navBar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#navBar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #4285f4;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+a.active {
+    color: #34a853;
+}
+
+#bookList {
+    display: grid;
+    list-style: none;
+}
+
+#bookList li {
+    margin: 10px;
+}
+
+main {
+    padding: 20px 30px;
+    text-align: center;
+    flex-grow: 1; 
+}
+
+h1 {
+    font-size: 2rem;
+    color: #202124;
+    margin-bottom: 20px;
+}
+
+#intro {
+    margin-bottom: 30px;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #202124;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    color: #202124;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 500px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #4285f4;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading {
+    animation: spin 1s infinite linear;
+    display: none;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+
+#loading.visible {
+    display: block;
+}
+
+#description {
+    display: none; 
+    font-size: 1.1rem;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: left;
+    line-height: 1.6;
+    word-wrap: break-word;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out, max-height 0.5s ease-in-out;
+}
+
+#description.visible {
+    display: block;
+    opacity: 1;
+    max-height: 500px; 
+}
+
+#scroll {
+    position: fixed;
+    bottom: 30px; 
+    right: 20px;  
+    background-color: #2DA6F0;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: none; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#scroll:hover {
+    background-color: #357ae8;
+}
+
+
+#app-footer {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    color: #999;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    button {
+        width: 90%;
+        margin-top: 10px;
+    }
+
+    ul#bookList li {
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    #navBar li {
+        display: block;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+}

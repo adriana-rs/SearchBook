@@ -1,0 +1,19 @@
+# Ignora la cartella di configurazione di VSCode
+.vscode/
+
+# Ignora i file di sistema di Windows
+Thumbs.db
+.DS_Store 
+
+# Ignora i file di log
+*.log
+
+# Ignora file temporanei di editor (se ce ne sono)
+*.swp
+*.swo
+
+# Ignora i file di sistema generati durante l'editing
+*.bak
+*.tmp
+
+
