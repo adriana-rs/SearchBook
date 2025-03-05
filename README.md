@@ -4,6 +4,11 @@ SearchBook è un'applicazione web che permette agli utenti di cercare libri in b
 
 ![Screenshot della pagina](./assets/img/Screenshot%202025-03-05%20152111.png)
 
+## Demo
+
+Puoi vedere l'app in azione si Netlify:
+
+[**SearchBook su Netlify**](https://searchbook-rs.netlify.app/)
 
 ## Funzionalità
 
