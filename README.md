@@ -97,9 +97,9 @@ Questo progetto è concesso in licenza sotto la Licenza MIT.
 
 ## Link utili 
 
-*SearchBook su [**Netlify**](https://searchbook-rs.netlify.app/)
-*Open Library [**API**](https://openlibrary.org/developers/api)
-*GitHub [**Repository**](https://github.com/adriana-rs/SearchBook)
+* SearchBook su [**Netlify**](https://searchbook-rs.netlify.app/)
+* Open Library [**API**](https://openlibrary.org/developers/api)
+* GitHub [**Repository**](https://github.com/adriana-rs/SearchBook)
 * [**LinkedIn**](https://linkedin.com/in/adriana-rs1805)
 * [**Facebook**](https://www.facebook.com/Tony.Adry)
 * [**Instagram**](https://www.instagram.com/adrianars20/profilecard/?igsh=eW42cXphbTdseGRp)
