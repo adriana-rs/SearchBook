@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -16,7 +17,8 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [ MiniCssExtractPlugin.loader,  
+                  'css-loader'],
             },
             {
                 test: /\.(png|jpg|gif)$/, // Supporta immagini PNG, JPG, GIF
@@ -38,6 +40,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './index.html',
 
+        }),
+        new MiniCssExtractPlugin({
+          filename: 'styles.css',  
         }),
     ],
 
