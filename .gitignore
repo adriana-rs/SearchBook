@@ -1,0 +1,8 @@
+# Node modules
+node_modules/
+
+# Cartella di build
+dist/
+
+# File di lock di npm
+package-lock.json
