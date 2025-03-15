@@ -2,6 +2,10 @@ import '../css/style.css';
 import myImage from '../img/bookshelf_1470368.png';
 import axios from 'axios';
 
+const imgElement = document.createElement('img');
+imgElement.src = myImage;  
+document.body.appendChild(imgElement);
+
 const bookList = document.getElementById('bookList');
 
 //funzione per mostrare o nascondere elementi

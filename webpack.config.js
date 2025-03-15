@@ -1,57 +1,54 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    //punto d'ingresso dell'app
-    entry: './assets/js/script.js',
+  entry: './assets/js/script.js',  
 
-    //configurazione uscita
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-    },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,  
+    assetModuleFilename: 'assets/img/[name][ext][query]',  
+  },
 
-    //configurazione dei moduli (loaders)
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [ MiniCssExtractPlugin.loader,  
-                  'css-loader'],
-            },
-            {
-                test: /\.(png|jpg|gif)$/, // Supporta immagini PNG, JPG, GIF
-                use: [
-                  {
-                    loader: 'file-loader',
-                    options: {
-                      name: '[name].[ext]', // Rinomina il file (con un hash per evitare conflitti)
-                      outputPath: 'assets/img', // Esporta le immagini nella cartella 'images'
-                    },
-                  },
-                ],
-            },
-        ],
-    },
-
-    //plugin per file html
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './index.html',
-
-        }),
-        new MiniCssExtractPlugin({
-          filename: 'styles.css',  
-        }),
-    ],
-
-    mode: 'production',
-    devServer: {
-        static: {
-          directory: path.join(__dirname, 'dist'),
+  module: {
+    rules: [
+      {
+        test: /\.js$/,  
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
-        compress: true,
-        port: 9000,
       },
+      {
+        test: /\.css$/,  
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,  
+        type: 'asset/resource',  
+      },
+    ],
+  },
+
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      inject: 'body',
+    }),
+  ],
+
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
+    open: true,
+  },
+
+  mode: 'development',  
 };
