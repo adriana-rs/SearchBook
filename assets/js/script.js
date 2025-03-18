@@ -4,7 +4,9 @@ import axios from 'axios';
 
 const imgElement = document.createElement('img');
 imgElement.src = myImage;  
-document.body.appendChild(imgElement);
+const imgContainer = document.getElementById('img-id');
+
+imgContainer.appendChild(imgElement);
 
 const bookList = document.getElementById('bookList');
 
