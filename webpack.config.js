@@ -38,6 +38,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       inject: 'body',
+      minify: {
+        removeAttributeQuotes: false,  // non rimuove le virgolette sugli attributi
+      }
     }),
   ],
 
