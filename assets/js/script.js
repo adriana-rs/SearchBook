@@ -2,11 +2,14 @@ import '../css/style.css';
 import myImage from '../img/bookshelf_1470368.png';
 import axios from 'axios';
 
+// Creazione degli elementi DOM
 const imgElement = document.createElement('img');
 const imgContainer = document.getElementById('img-id');
 const bookList = document.getElementById('bookList');
+imgElement.src = myImage;  
+imgContainer.appendChild(imgElement);
 
-//funzione per mostrare o nascondere elementi
+// Funzione per mostrare o nascondere elementi
 function toggleVisibility(elementId, show) {
     const element = document.getElementById(elementId);
     if(show) {
@@ -17,17 +20,17 @@ function toggleVisibility(elementId, show) {
         element.classList.add('hidden');
     }
 }
-//funzione per indicatore di caricamento
+// Funzione per indicatore di caricamento
 function showLoading(show) {
     toggleVisibility('loading', show);
 }
 
-//funzione per mostrare il titolo della lista dei libri
+// Funzione per mostrare il titolo della lista dei libri
 function listTitle(show) {
     toggleVisibility('researchTitle', show);
 }
 
-//funzione per mostrare la descrizione del libro 
+//Funzione per mostrare la descrizione del libro 
 function descriptionBook(show) {
     toggleVisibility('descriptionTitle', show);
     toggleVisibility('descriptionDiv', show);
@@ -38,17 +41,8 @@ function searchBook() {
     imgElement.src = myImage;  
     imgContainer.appendChild(imgElement);
     
-    //aggiungo EventListener al bottore per la ricerca 
-    document.getElementById('searchBtn').addEventListener('click', searchBook);
-
-    //aggiungo il click da tastiera con il tasto "Enter"
-    document.getElementById('categoryInput').addEventListener('keydown', function (event) {
-        if(event.key === 'Enter') {
-            searchBook();
-        }
-    });
-
     const category = document.getElementById('categoryInput').value.trim();
+
     if(category) {
         showLoading(true);
         axios.get(`https://openlibrary.org/subjects/${category}.json`)
@@ -70,25 +64,7 @@ function searchBook() {
 
 //funzione per visualizzare la lista dei libri
 function displayBook(data) {
-
-    const scrollBtn = document.getElementById('scroll');
-    window.onscroll = function() {
-        if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-            scrollBtn.style.display = 'block';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    };
-
-    //funzione per scrollare verso l'altro con il click
-    scrollBtn.onclick = function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        })
-    };
-
-    bookList.innerHTML = '';
+     bookList.innerHTML = '';
     if(data.works && data.works.length > 0) {
         data.works.forEach(book => {
             const li = document.createElement('li');
@@ -98,6 +74,8 @@ function displayBook(data) {
                 <button id="bookBtn${book.key}">Mostra descrizione</button>
             `;
             bookList.appendChild(li);
+
+            // Aggiungi il click per mostrare la descrizione del libro
             document.getElementById(`bookBtn${book.key}`).addEventListener('click', function() {
                 fetchBookDescription(book.key);
         });
@@ -132,4 +110,45 @@ function fetchBookDescription(bookKey) {
         });
     }
 
+    // Funzione per mostrare/ nascondere il bottone di scroll
+    function handleScroll() {
+    const scrollBtn = document.getElementById('scroll');
+    window.onscroll = function() {
+        if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+
+    // Funzione per scrollare verso l'altro con il click
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    };
+}
+
+    // Funzione per inizializzare gli eventListener
+    function init() {
+    // Aggiungo EventListener al bottore per la ricerca 
+    document.getElementById('searchBtn').addEventListener('click', searchBook);
+
+    // Aggiungo il click da tastiera con il tasto "Enter"
+    document.getElementById('categoryInput').addEventListener('keydown', function (event) {
+        if(event.key === 'Enter') {
+            searchBook();
+        }
+    });
+}
+
+// Funzione per inizializzare tutte le interazioni
+function initializeApp() {
+    init();
+    handleScroll();
+}
+
+// Chiamata a funzione per inizializzare tutto
+initializeApp();
 
