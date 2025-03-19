@@ -3,11 +3,7 @@ import myImage from '../img/bookshelf_1470368.png';
 import axios from 'axios';
 
 const imgElement = document.createElement('img');
-imgElement.src = myImage;  
 const imgContainer = document.getElementById('img-id');
-
-imgContainer.appendChild(imgElement);
-
 const bookList = document.getElementById('bookList');
 
 //funzione per mostrare o nascondere elementi
@@ -39,39 +35,59 @@ function descriptionBook(show) {
 
 //funzione per cercare i libri in base alla categoria
 function searchBook() {
+    imgElement.src = myImage;  
+    imgContainer.appendChild(imgElement);
+    
+    //aggiungo EventListener al bottore per la ricerca 
+    document.getElementById('searchBtn').addEventListener('click', searchBook);
+
+    //aggiungo il click da tastiera con il tasto "Enter"
+    document.getElementById('categoryInput').addEventListener('keydown', function (event) {
+        if(event.key === 'Enter') {
+            searchBook();
+        }
+    });
+
     const category = document.getElementById('categoryInput').value.trim();
     if(category) {
         showLoading(true);
-
-axios.get(`https://openlibrary.org/subjects/${category}.json`)
-    .then(response => {
-        console.log('Dati ricevuti dalla API:', response.data);
-        showLoading(false);
-        displayBook(response.data);
-    })
-    .catch(error => {
-        console.error('Errore nella richiesta API:', error);
-        showLoading(false);
-        alert('Impossibile caricare i dati. Riprova più tardi.');
-    })
-} else {
-    console.log('Categoria non inserita:', category);
-    alert('Per favore inserisci una categoria');
+        axios.get(`https://openlibrary.org/subjects/${category}.json`)
+        .then(response => {
+            console.log('Dati ricevuti dalla API:', response.data);
+            showLoading(false);
+            displayBook(response.data);
+        })
+        .catch(error => {
+            console.error('Errore nella richiesta API:', error);
+            showLoading(false);
+            alert('Impossibile caricare i dati. Riprova più tardi.');
+        })
+    } else {
+        console.log('Categoria non inserita:', category);
+        alert('Per favore inserisci una categoria');
     }
 }
 
-//aggiungo EventListener al bottore per la ricerca 
-document.getElementById('searchBtn').addEventListener('click', searchBook);
-
-//aggiungo il click da tastiera con il tasto "Enter"
-document.getElementById('categoryInput').addEventListener('keydown', function (event) {
-    if(event.key === 'Enter') {
-        searchBook();
-    }
-});
-
 //funzione per visualizzare la lista dei libri
 function displayBook(data) {
+
+    const scrollBtn = document.getElementById('scroll');
+    window.onscroll = function() {
+        if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    };
+
+    //funzione per scrollare verso l'altro con il click
+    scrollBtn.onclick = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        })
+    };
+
     bookList.innerHTML = '';
     if(data.works && data.works.length > 0) {
         data.works.forEach(book => {
@@ -116,20 +132,4 @@ function fetchBookDescription(bookKey) {
         });
     }
 
-//funzione per mostrare/nascondere il btn scroll
-const scrollBtn = document.getElementById('scroll');
-window.onscroll = function() {
-    if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        scrollBtn.style.display = 'block';
-    } else {
-        scrollBtn.style.display = 'none';
-    }
-};
 
-//funzione per scrollare verso l'altro con il click
-scrollBtn.onclick = function() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-    })
-};
