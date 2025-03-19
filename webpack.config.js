@@ -39,7 +39,7 @@ module.exports = {
       template: './index.html',
       inject: 'body',
       minify: {
-        removeAttributeQuotes: false,  // non rimuove le virgolette sugli attributi
+        removeAttributeQuotes: false,  
       }
     }),
   ],
@@ -53,5 +53,5 @@ module.exports = {
     open: true,
   },
 
-  mode: 'development',  
+  mode: 'production',  
 };
