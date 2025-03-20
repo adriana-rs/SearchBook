@@ -50,7 +50,7 @@
 
 Puoi provare l'applicazione direttamente online tramite il seguente link:
 
-[Demo di SearchBook]()
+[Demo di SearchBook](https://rs-searchbook.netlify.app/)
 
 Cliccando sul link, verrai indirizzato alla versione live dell'applicazione, dove potrai testare tutte le funzionalità direttamente nel tuo browser.
 
