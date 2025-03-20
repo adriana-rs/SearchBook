@@ -30,13 +30,13 @@ function listTitle(show) {
     toggleVisibility('researchTitle', show);
 }
 
-//Funzione per mostrare la descrizione del libro 
+// Funzione per mostrare la descrizione del libro 
 function descriptionBook(show) {
     toggleVisibility('descriptionTitle', show);
     toggleVisibility('descriptionDiv', show);
 }
 
-//funzione per cercare i libri in base alla categoria
+// Funzione per cercare i libri in base alla categoria
 function searchBook() {
     imgElement.src = myImage;  
     imgContainer.appendChild(imgElement);
@@ -62,7 +62,7 @@ function searchBook() {
     }
 }
 
-//funzione per visualizzare la lista dei libri
+// Funzione per visualizzare la lista dei libri
 function displayBook(data) {
      bookList.innerHTML = '';
     if(data.works && data.works.length > 0) {
@@ -75,7 +75,7 @@ function displayBook(data) {
             `;
             bookList.appendChild(li);
 
-            // Aggiungi il click per mostrare la descrizione del libro
+            // Aggiungo il click per mostrare la descrizione del libro
             document.getElementById(`bookBtn${book.key}`).addEventListener('click', function() {
                 fetchBookDescription(book.key);
         });
@@ -88,7 +88,7 @@ function displayBook(data) {
     }
 }
 
-//funzione per ottenere la descrizione
+// Funzione per ottenere la descrizione
 function fetchBookDescription(bookKey) {
     console.log('Key del libro:', bookKey); 
     axios.get(`https://openlibrary.org${bookKey}.json`)
@@ -99,7 +99,7 @@ function fetchBookDescription(bookKey) {
             document.getElementById('descriptionDiv').innerText = description;
             descriptionBook(true)
 
-            //scroll della pagina fino a descriptionDiv
+            // Scroll della pagina fino a descriptionDiv
             document.getElementById('descriptionDiv').scrollIntoView({ behavior: 'smooth' });
         })
         .catch(error => {
