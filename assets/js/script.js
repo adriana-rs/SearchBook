@@ -91,7 +91,7 @@ function displayBook(data) {
 // Funzione per ottenere la descrizione
 function fetchBookDescription(bookKey) {
     console.log('Key del libro:', bookKey); 
-    axios.get(`https://openlibrary.org${bookKey}.json`)
+    axios.get(`https://openlibrary.org${bookKey}&lang=it.json`)
         .then(response => {
             const data = response.data;
             const description = data.description ? (typeof data.description === 'string' ? data.description : data.description.value) : 'Descrizione non disponibile.';
