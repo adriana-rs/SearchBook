@@ -47,18 +47,18 @@ function searchBook() {
         showLoading(true);
         axios.get(`https://openlibrary.org/subjects/${category}.json`)
         .then(response => {
-            console.log('Dati ricevuti dalla API:', response.data);
+            console.log('Data received from the API:', response.data);
             showLoading(false);
             displayBook(response.data);
         })
         .catch(error => {
-            console.error('Errore nella richiesta API:', error);
+            console.error('Error in the API request:', error);
             showLoading(false);
-            alert('Impossibile caricare i dati. Riprova più tardi.');
+            alert('Unable to load the data. Please try again later.');
         })
     } else {
-        console.log('Categoria non inserita:', category);
-        alert('Per favore inserisci una categoria');
+        console.log('Category not entered:', category);
+        alert('Please enter a category');
     }
 }
 
@@ -70,8 +70,8 @@ function displayBook(data) {
             const li = document.createElement('li');
             li.innerHTML = `
                 <strong>${book.title}</strong><br>
-                Autori: ${book.authors ? book.authors.map(author => author.name).join(', ') : 'Sconosciuti'}<br>
-                <button id="bookBtn${book.key}">Mostra descrizione</button>
+                Authors: ${book.authors ? book.authors.map(author => author.name).join(', ') : 'Unknown'}<br>
+                <button id="bookBtn${book.key}">Show description</button>
             `;
             bookList.appendChild(li);
 
@@ -82,7 +82,7 @@ function displayBook(data) {
     });
         listTitle(true); 
     } else {
-        bookList.innerHTML = 'Nessun libro trovato per questa categoria.';
+        bookList.innerHTML = 'No books found for this category.';
         listTitle(false);
         descriptionBook(false);
     }
@@ -90,12 +90,12 @@ function displayBook(data) {
 
 // Funzione per ottenere la descrizione
 function fetchBookDescription(bookKey) {
-    console.log('Key del libro:', bookKey); 
+    console.log('Book key:', bookKey); 
     axios.get(`https://openlibrary.org${bookKey}.json`)
         .then(response => {
             const data = response.data;
-            const description = data.description ? (typeof data.description === 'string' ? data.description : data.description.value) : 'Descrizione non disponibile.';
-            console.log('Descrizione del libro:', description);
+            const description = data.description ? (typeof data.description === 'string' ? data.description : data.description.value) : 'Description not available.';
+            console.log('Book description:', description);
             document.getElementById('descriptionDiv').innerText = description;
             descriptionBook(true)
 
@@ -104,8 +104,8 @@ function fetchBookDescription(bookKey) {
         })
         .catch(error => {
             showLoading(false);
-            console.log('Errore nel recupero della descrizione del libro: ', error);
-            document.getElementById('descriptionDiv').innerText = 'Errore nel recupero della descrizione';
+            console.log('Error retrieving the book description: ', error);
+            document.getElementById('descriptionDiv').innerText = 'Error retrieving the description';
             descriptionBook(false);
         });
     }
@@ -143,7 +143,7 @@ function fetchBookDescription(bookKey) {
     });
 }
 
-// Funzione per inizializzare tutte le interazioni
+// Funzione per inizializzare tutte le iterazioni
 function initializeApp() {
     init();
     handleScroll();
