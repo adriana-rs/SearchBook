@@ -20,6 +20,7 @@ function toggleVisibility(elementId, show) {
         element.classList.add('hidden');
     }
 }
+
 // Funzione per indicatore di caricamento
 function showLoading(show) {
     toggleVisibility('loading', show);
