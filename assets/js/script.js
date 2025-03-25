@@ -80,6 +80,7 @@ function displayBook(data) {
                 <button id="bookBtn${book.key}">Show description</button>
             `;
             bookList.appendChild(li);
+            
 
             // Aggiungo il click per mostrare la descrizione del libro
             document.getElementById(`bookBtn${book.key}`).addEventListener('click', function() {
@@ -87,6 +88,7 @@ function displayBook(data) {
         });
     });
         listTitle(true); 
+        showError(false);
     } else {
         showError(true, 'No books found for this category.');
         listTitle(false);
