@@ -79,6 +79,13 @@ function displayBook(data) {
                 Authors: ${book.authors ? book.authors.map(author => author.name).join(', ') : 'Unknown'}<br>
                 <button id="bookBtn${book.key}">Show description</button>
             `;
+
+            const favoriteBtn = document.createElement('button');
+            favoriteBtn.classList.add('favoriteBtn');
+            favoriteBtn.id = `favoriteBtn${book.key}`;
+            favoriteBtn.innerHTML = '❤️';
+            
+            li.appendChild(favoriteBtn);
             bookList.appendChild(li);
             
 
@@ -86,6 +93,16 @@ function displayBook(data) {
             document.getElementById(`bookBtn${book.key}`).addEventListener('click', function() {
                 fetchBookDescription(book.key);
         });
+        
+        // Aggiungo il click sul cuore per salvare il libro nei preferiti
+        favoriteBtn.addEventListener('click', function () {
+            toggleFavorite(book);
+        });
+
+        // Se il libro è nei preferiti, coloro il cuore
+        if (favoriteBooks.find(favBook => favBook.key === book.key)) {
+            favoriteBtn.innerText = '💖'; 
+        }
     });
         listTitle(true); 
         showError(false);
@@ -94,6 +111,22 @@ function displayBook(data) {
         listTitle(false);
         descriptionBook(false);
     }
+}
+
+// Funzione per aggiungere o rimuovere un libro dai preferiti
+function toggleFavorite(book) {
+    const favoriteBtn = document.getElementById(`favoriteBtn${book.key}`);
+    const index = favoriteBooks.findIndex(favBook => favBook.key === book.key);
+
+    if (index !== -1) {
+        favoriteBooks.splice(index, 1);
+        favoriteBtn.innerText = '❤️'; 
+    } else {
+        favoriteBooks.push(book);
+        favoriteBtn.innerText = '💖'; 
+    }
+
+    localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
 }
 
 // Funzione per ottenere la descrizione
@@ -117,6 +150,8 @@ function fetchBookDescription(bookKey) {
             descriptionBook(false);
         });
     }
+
+
 
     // Funzione per mostrare/ nascondere il bottone di scroll
     function handleScroll() {
