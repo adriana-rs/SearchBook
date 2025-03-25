@@ -9,6 +9,9 @@ const bookList = document.getElementById('bookList');
 imgElement.src = myImage;  
 imgContainer.appendChild(imgElement);
 
+// Recupera i preferiti salvati nel localStorage
+let favoriteBooks = JSON.parse(localStorage.getItem('favoriteBooks')) || [];
+
 // Funzione per mostrare o nascondere elementi
 function toggleVisibility(elementId, show) {
     const element = document.getElementById(elementId);
@@ -46,7 +49,6 @@ function descriptionBook(show) {
 
 // Funzione per cercare i libri in base alla categoria
 function searchBook() {
-    
     const category = document.getElementById('categoryInput').value.trim();
 
     if(category) {
@@ -80,10 +82,11 @@ function displayBook(data) {
                 <button id="bookBtn${book.key}">Show description</button>
             `;
 
+            // Creazione del cuore per i preferiti
             const favoriteBtn = document.createElement('button');
             favoriteBtn.classList.add('favoriteBtn');
             favoriteBtn.id = `favoriteBtn${book.key}`;
-            favoriteBtn.innerHTML = '❤️';
+            favoriteBtn.innerHTML = '🤍';
             
             li.appendChild(favoriteBtn);
             bookList.appendChild(li);
@@ -93,7 +96,7 @@ function displayBook(data) {
             document.getElementById(`bookBtn${book.key}`).addEventListener('click', function() {
                 fetchBookDescription(book.key);
         });
-        
+
         // Aggiungo il click sul cuore per salvare il libro nei preferiti
         favoriteBtn.addEventListener('click', function () {
             toggleFavorite(book);
@@ -101,7 +104,7 @@ function displayBook(data) {
 
         // Se il libro è nei preferiti, coloro il cuore
         if (favoriteBooks.find(favBook => favBook.key === book.key)) {
-            favoriteBtn.innerText = '💖'; 
+            favoriteBtn.innerText = '❤️'; 
         }
     });
         listTitle(true); 
@@ -120,10 +123,10 @@ function toggleFavorite(book) {
 
     if (index !== -1) {
         favoriteBooks.splice(index, 1);
-        favoriteBtn.innerText = '❤️'; 
+        favoriteBtn.innerText = '🤍'; 
     } else {
         favoriteBooks.push(book);
-        favoriteBtn.innerText = '💖'; 
+        favoriteBtn.innerText = '❤️'; 
     }
 
     localStorage.setItem('favoriteBooks', JSON.stringify(favoriteBooks));
@@ -154,7 +157,7 @@ function fetchBookDescription(bookKey) {
 
 
     // Funzione per mostrare/ nascondere il bottone di scroll
-    function handleScroll() {
+function handleScroll() {
     const scrollBtn = document.getElementById('scroll');
     window.onscroll = function() {
         if(document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
