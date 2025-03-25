@@ -1,6 +1,6 @@
 # SearchBook
 
-**SearchBook** è un'applicazione web interattiva che permette agli utenti di cercare libri per categoria utilizzando l'API di Open Library. Il progetto è realizzato con HTML, CSS e JavaScript, ed è ottimizzato per l'utilizzo su dispositivi desktop e mobile.
+**SearchBook** è una semplice applicazione che  permette di cercare libri tramite la Open Library API. Gli utenti possono cercare libri per categoria, visualizzare le descrizioni dei libri e aggiungerli ai preferiti, che vengono salvati nel localStorage del browser.
 
 ***
 
@@ -12,6 +12,7 @@
 
 - **Ricerca per categoria**: Gli utenti possono inserire una categoria nel campo di ricerca e visualizzare i libri correlati.
 - **Descrizione del libro**: Dopo aver selezionato un libro, l'utente può visualizzarne la descrizione.
+- **Preferiti**: I libri possono essere aggiunti ai preferiti e vengono salvati nel localStorage per una consultazione futura.
 - **Caricamento dinamico**: L'app mostra un indicatore di caricamento durante il recupero dei dati dall'API.
 - **Scroll per la descrizione**: Una volta che una descrizione del libro è disponibile, la pagina scorre automaticamente fino alla sezione della descrizione.
 - **Design responsivo**: L'app è progettata per essere compatibile con dispositivi desktop e mobili.
@@ -24,7 +25,12 @@
 2. Viene inviata una richiesta API a Open Library per ottenere i libri correlati alla categoria inserita.
 3. Una lista di libri viene visualizzata, con il titolo e gli autori.
 4. Se l'utente desidera visualizzare ulteriori dettagli, può cliccare sul bottone "Mostra descrizione" per ogni libro.
-5. L'applicazione mostra un indicatore di caricamento durante la ricerca e il recupero delle descrizioni.
+5. Ogni libro ha un'icona a forma di cuore per aggiungerlo o rimuoverlo dai preferiti.
+6. L'applicazione mostra un indicatore di caricamento durante la ricerca e il recupero delle descrizioni.
+
+## LocalStorage
+
+I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del browser e saranno visibili anche nelle sessioni future.
 
 ***
 

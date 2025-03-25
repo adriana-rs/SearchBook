@@ -138,11 +138,15 @@ h2 {
     border: none;
     font-size: 20px;
     cursor: pointer;
-    transition: transform 0.3s;
 }
 
 .favoriteBtn:hover {
     transform: scale(1.2);
+}
+
+button:focus, .favoriteBtn:focus {
+    outline: 3px solid #ffcc00; 
+    outline-offset: 2px;
 }
 
 #bookList {

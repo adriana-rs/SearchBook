@@ -79,7 +79,7 @@ function displayBook(data) {
             li.innerHTML = `
                 <strong>${book.title}</strong><br>
                 Authors: ${book.authors ? book.authors.map(author => author.name).join(', ') : 'Unknown'}<br>
-                <button id="bookBtn${book.key}">Show description</button>
+                <button id="bookBtn${book.key}" aria-label="Show description for ${book.title}">Show description</button>
             `;
 
             // Creazione del cuore per i preferiti
@@ -87,6 +87,7 @@ function displayBook(data) {
             favoriteBtn.classList.add('favoriteBtn');
             favoriteBtn.id = `favoriteBtn${book.key}`;
             favoriteBtn.innerHTML = '🤍';
+            favoriteBtn.setAttribute('aria-label', `Add ${book.title} to favorites`);
             
             li.appendChild(favoriteBtn);
             bookList.appendChild(li);
