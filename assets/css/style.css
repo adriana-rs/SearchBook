@@ -97,12 +97,16 @@ button:hover {
 }
 
 #errorMessage {
-    background-color: white;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 12px 20px; 
+    margin: 15px auto; 
     border: 1px solid rgb(209, 3, 3);
     border-radius: 60px;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+    width: 80%; 
+    max-width: 500px;
+    font-size: 1rem;
+    color: #d90303; 
+    text-align: center;
 }
 
 @keyframes spin {
@@ -228,6 +232,12 @@ h3 {
 
     button {
         margin-top: 10px;
+    }
+
+    #errorMessage {
+        width: 95%; 
+        font-size: 0.9rem; 
+        padding: 10px 15px; 
     }
     
     #navBar li {
