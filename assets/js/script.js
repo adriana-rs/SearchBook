@@ -31,6 +31,13 @@ function listTitle(show) {
     toggleVisibility('researchTitle', show);
 }
 
+function showError(show, message = '') {
+    toggleVisibility('errorMessage', show);
+    if(show && message) {
+        document.getElementById('errorMessage').innerText = message;
+    }
+}
+
 // Funzione per mostrare la descrizione del libro 
 function descriptionBook(show) {
     toggleVisibility('descriptionTitle', show);
@@ -39,8 +46,6 @@ function descriptionBook(show) {
 
 // Funzione per cercare i libri in base alla categoria
 function searchBook() {
-    imgElement.src = myImage;  
-    imgContainer.appendChild(imgElement);
     
     const category = document.getElementById('categoryInput').value.trim();
 
@@ -55,11 +60,11 @@ function searchBook() {
         .catch(error => {
             console.error('Error in the API request:', error);
             showLoading(false);
-            alert('Unable to load the data. Please try again later.');
+            showError(true, 'Unable to load the data. Please try again later.');
         })
     } else {
         console.log('Category not entered:', category);
-        alert('Please enter a category');
+        showError(true, 'Please enter a category');
     }
 }
 
@@ -83,7 +88,7 @@ function displayBook(data) {
     });
         listTitle(true); 
     } else {
-        bookList.innerHTML = 'No books found for this category.';
+        showError(true, 'No books found for this category.');
         listTitle(false);
         descriptionBook(false);
     }
@@ -106,7 +111,7 @@ function fetchBookDescription(bookKey) {
         .catch(error => {
             showLoading(false);
             console.log('Error retrieving the book description: ', error);
-            document.getElementById('descriptionDiv').innerText = 'Error retrieving the description';
+            showError(true, 'Error retrieving the description');
             descriptionBook(false);
         });
     }
