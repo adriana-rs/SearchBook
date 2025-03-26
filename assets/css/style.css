@@ -32,7 +32,7 @@ body.dark button, body.dark input[type="text"], body.dark #bookList li {
     color: #ffffff;
 }
 
-#nabBar {
+#header {
     position: sticky;
     top: 0;
     background-color: #f5f5f5;
@@ -42,7 +42,7 @@ body.dark button, body.dark input[type="text"], body.dark #bookList li {
     z-index: 1000; 
 }
 
-#navBar.dark {
+#header.dark {
     background-color: #333333;
     color: #ffffff;
 }
@@ -261,7 +261,7 @@ h3.dark {
     width: 100%;
 }
 
-#appFooter {
+#appFooter.dark {
     background-color: #333333;
     color: #ffffff;
 }
