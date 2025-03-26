@@ -82,6 +82,9 @@ I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del b
 
 3. **Modalità tema chiaro/scuro**: Quando l'utente clicca sul bottone "🌙" nella barra di navigazione passa lo schermo alla modalità scura. Il bottone dinamicamenre diventa "☀️" per ritornare alla modalità chiara.
 
+![Screenshot dell'app](./assets/img/Screenshot%202025-03-26%20141624.png)
+
+
 ***
 
 ## Tecnologie utilizzate
