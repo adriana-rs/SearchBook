@@ -16,7 +16,7 @@
 - **Caricamento dinamico**: L'app mostra un indicatore di caricamento durante il recupero dei dati dall'API.
 - **Mostra Descrizioni dei Libri**: Quando l'utente clicca sul pulsante "Show description" di un libro, l'app recupera e visualizza la descrizione del libro.
 - **Scroll per la descrizione**: Una volta che una descrizione del libro è disponibile, la pagina scorre automaticamente fino alla sezione della descrizione.
--**Scroll per Tornare in Alto**: : L'app fornisce un pulsante per tornare in alto che appare dopo aver fatto scroll giù di 200px.
+- **Scroll per Tornare in Alto**: L'app fornisce un pulsante per tornare in alto che appare dopo aver fatto scroll giù di 200px.
 - **Design responsivo**: L'app è progettata per essere compatibile con dispositivi desktop e mobili.
 
 ***
@@ -52,11 +52,12 @@
 I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del browser e saranno visibili anche nelle sessioni future.
 
 ***
+
 ## Utilizzo
 
 ## Ricerca Libri
 
-1. Inserisci una categoria (ad esempio "fiction", "scienza", ecc.) nel campo di input.
+1. Inserisci una categoria (ad esempio "fantasy", "history", ecc.) nel campo di input.
 
 2. Clicca sul pulsante "Cerca" oppure premi "Enter" per recuperare i libri relativi a quella categoria.
 

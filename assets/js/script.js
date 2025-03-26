@@ -177,15 +177,41 @@ function handleScroll() {
     };
 }
 
-    // Funzione per inizializzare gli eventListener
-    function init() {
-    // Aggiungo EventListener al bottore per la ricerca 
-    document.getElementById('searchBtn').addEventListener('click', searchBook);
+//Funzione per il cambio tema
+function toggleTheme() {
+    const body = document.body;
+    const themeButton = document.getElementById('themeToggle');
+    const darkMode = body.classList.contains('dark-mode');
 
-    // Aggiungo il click da tastiera con il tasto "Enter"
-    document.getElementById('categoryInput').addEventListener('keydown', function (event) {
-        if(event.key === 'Enter') {
-            searchBook();
+    if(darkMode) {
+        body.classList.remove('darke-mode');
+        themeButton.innerHTML = '🌙';
+    } else {
+        body.classList.add('dark-mode');
+        themeButton.innerHTML = '☀️';
+    }
+
+    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
+// Carica la preferenza del tema salvata
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('themeToggle').innerHTML = '☀️';
+    }
+}
+
+// Funzione per inizializzare gli eventListener
+function init() {
+// Aggiungo EventListener al bottore per la ricerca 
+document.getElementById('searchBtn').addEventListener('click', searchBook);
+
+// Aggiungo il click da tastiera con il tasto "Enter"
+document.getElementById('categoryInput').addEventListener('keydown', function (event) {
+    if(event.key === 'Enter') {
+        searchBook();
         }
     });
 }
