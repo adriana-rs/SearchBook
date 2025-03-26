@@ -4,7 +4,7 @@
 
 ***
 
-![Screenshot dell'app](./assets/img/Screenshot%202025-03-13%20150723.png)
+![Screenshot dell'app](./assets/img/Screenshot%202025-03-26%20140921.png)
 
 ***
 
@@ -17,6 +17,7 @@
 - **Mostra Descrizioni dei Libri**: Quando l'utente clicca sul pulsante "Show description" di un libro, l'app recupera e visualizza la descrizione del libro.
 - **Scroll per la descrizione**: Una volta che una descrizione del libro è disponibile, la pagina scorre automaticamente fino alla sezione della descrizione.
 - **Scroll per Tornare in Alto**: L'app fornisce un pulsante per tornare in alto che appare dopo aver fatto scroll giù di 200px.
+- **Tema chiaro/scuro**: Gli utenti possono passare tra il tema chiaro e quello scuro per un'esperienza di lettura personalizzata.
 - **Design responsivo**: L'app è progettata per essere compatibile con dispositivi desktop e mobili.
 
 ***
@@ -43,7 +44,7 @@
 
 **handleScroll**: Gestisce la visualizzazione del pulsante di ritorno in alto in base alla posizione dello scroll.
 
-**init**: Imposta gli event listener per le azioni di ricerca (clic sul pulsante e pressione del tasto "Enter").
+**init**: Imposta gli event listener per le azioni di ricerca (clic sul pulsante e pressione del tasto "Enter") e personalizzazione del tema.
 
 **initializeApp**: Inizializza tutte le funzioni quando l'app viene caricata.
 
@@ -79,6 +80,8 @@ I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del b
 
 2. **Scroll verso l'alto**: Un bottone "scroll up" è visibile quando l'utente scorre più di 200px verso il basso, permettendo di tornare facilmente all'inizio della pagina.
 
+3. **Modalità tema chiaro/scuro**: Quando l'utente clicca sul bottone "🌙" nella barra di navigazione passa lo schermo alla modalità scura. Il bottone dinamicamenre diventa "☀️" per ritornare alla modalità chiara.
+
 ***
 
 ## Tecnologie utilizzate
@@ -103,13 +106,7 @@ Cliccando sul link, verrai indirizzato alla versione live dell'applicazione, dov
 
 ## Contribuire
 
-Se desideri contribuire a questo progetto, segui questi passaggi:
-
-1. Fork il repository.
-2. Crea un branch per la tua funzionalità (`git checkout -b feature-nome`).
-3. Aggiungi e committa i tuoi cambiamenti (`git commit -am 'Aggiungi una nuova funzionalità'`).
-4. Push al tuo branch (`git push origin feature-nome`).
-5. Crea una pull request.
+Se vuoi contribuire al progetto, puoi fare un fork di questo repository, creare un nuovo ramo e inviare una pull request. Ogni contributo è benvenuto!
 
 ***
 
