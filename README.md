@@ -1,6 +1,6 @@
 # SearchBook
 
-**SearchBook** è una semplice applicazione che  permette di cercare libri tramite la Open Library API. Gli utenti possono cercare libri per categoria, visualizzare le descrizioni dei libri e aggiungerli ai preferiti, che vengono salvati nel localStorage del browser.
+**SearchBook** è una semplice applicazione che consente agli utenti di cercare libri per categoria e gestire la loro lista di libri preferiti. Utilizza l'API di Open Library per recuperare i libri e le loro descrizioni. L'app consente agli utenti di aggiungere libri ai preferiti e di memorizzarli localmente usando localStorage.
 
 ***
 
@@ -11,28 +11,66 @@
 ## Funzionalità principali
 
 - **Ricerca per categoria**: Gli utenti possono inserire una categoria nel campo di ricerca e visualizzare i libri correlati.
-- **Descrizione del libro**: Dopo aver selezionato un libro, l'utente può visualizzarne la descrizione.
-- **Preferiti**: I libri possono essere aggiunti ai preferiti e vengono salvati nel localStorage per una consultazione futura.
+- **Visualizzazione della Lista dei Libri**: I libri vengono visualizzati in una lista con il titolo, gli autori e un pulsante per mostrare le descrizioni.
+- **Libri Preferiti**: Gli utenti possono aggiungere libri ai preferiti facendo clic sull'icona a forma di cuore. I libri preferiti vengono salvati in localStorage e rimangono disponibili anche dopo la chiusura e riapertura dell'app.
 - **Caricamento dinamico**: L'app mostra un indicatore di caricamento durante il recupero dei dati dall'API.
+- **Mostra Descrizioni dei Libri**: Quando l'utente clicca sul pulsante "Show description" di un libro, l'app recupera e visualizza la descrizione del libro.
 - **Scroll per la descrizione**: Una volta che una descrizione del libro è disponibile, la pagina scorre automaticamente fino alla sezione della descrizione.
+-**Scroll per Tornare in Alto**: : L'app fornisce un pulsante per tornare in alto che appare dopo aver fatto scroll giù di 200px.
 - **Design responsivo**: L'app è progettata per essere compatibile con dispositivi desktop e mobili.
 
 ***
 
-## Come funziona
+## Funzioni in JavaScript
 
-1. L'utente inserisce una categoria di libri nel campo di ricerca.
-2. Viene inviata una richiesta API a Open Library per ottenere i libri correlati alla categoria inserita.
-3. Una lista di libri viene visualizzata, con il titolo e gli autori.
-4. Se l'utente desidera visualizzare ulteriori dettagli, può cliccare sul bottone "Mostra descrizione" per ogni libro.
-5. Ogni libro ha un'icona a forma di cuore per aggiungerlo o rimuoverlo dai preferiti.
-6. L'applicazione mostra un indicatore di caricamento durante la ricerca e il recupero delle descrizioni.
+**toggleVisibility**: Gestisce la visibilità di un elemento HTML aggiungendo o rimuovendo le classi CSS hidden e visible.
+
+**showLoading**: Mostra un indicatore di caricamento durante il recupero dei dati dall'API.
+
+**listTitle**: Mostra o nasconde il titolo della lista dei libri.
+
+**showError**: Mostra un messaggio di errore quando si verifica un problema (ad esempio, nessun libro trovato o errore nell'API).
+
+**descriptionBook**: Mostra o nasconde la sezione della descrizione di un libro.
+
+**searchBook**: Recupera i libri dall'API di Open Library in base alla categoria inserita dall'utente.
+
+**displayBook**: Visualizza la lista dei libri recuperati dall'API nel DOM.
+
+**toggleFavorite**: Aggiunge o rimuove un libro dalla lista dei preferiti e lo salva in localStorage.
+
+**fetchBookDescription**: Recupera e visualizza la descrizione di un libro selezionato.
+
+**handleScroll**: Gestisce la visualizzazione del pulsante di ritorno in alto in base alla posizione dello scroll.
+
+**init**: Imposta gli event listener per le azioni di ricerca (clic sul pulsante e pressione del tasto "Enter").
+
+**initializeApp**: Inizializza tutte le funzioni quando l'app viene caricata.
 
 ## LocalStorage
 
 I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del browser e saranno visibili anche nelle sessioni future.
 
 ***
+## Utilizzo
+
+## Ricerca Libri
+
+1. Inserisci una categoria (ad esempio "fiction", "scienza", ecc.) nel campo di input.
+
+2. Clicca sul pulsante "Cerca" oppure premi "Enter" per recuperare i libri relativi a quella categoria.
+
+3. I libri verranno visualizzati con il titolo, gli autori e un pulsante per mostrare la descrizione.
+
+4. Clicca sul pulsante "Mostra descrizione" per vedere ulteriori dettagli sul libro.
+
+## Gestire i Libri Preferiti
+
+1. Clicca sull'icona a forma di cuore (🤍) accanto a un libro per aggiungerlo ai preferiti.
+
+2. Una volta aggiunto, il cuore diventerà pieno (❤️).
+
+3. I tuoi libri preferiti vengono salvati in localStorage e rimarranno disponibili anche dopo aver ricaricato la pagina.
 
 ## Funzionalità aggiuntive
 
