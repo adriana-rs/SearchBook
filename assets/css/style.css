@@ -39,7 +39,7 @@ header {
     z-index: 1000; 
 }
 
-header.dark {
+body.dark header {
     background-color: #333333;
     color: #ffffff;
     border-bottom: 1px solid #444444; 
@@ -267,7 +267,7 @@ body.dark #descriptionDiv {
     width: 100%;
 }
 
-#appFooter.dark {
+body.dark #appFooter {
     background-color: #333333;
     color: #ffffff;
 }
