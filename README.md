@@ -126,9 +126,9 @@ Questo progetto è stato creato da [Adriana Russo](https://adriana-rs.github.io)
 
 ## Contatti 
 
-- [Instagram]()
-- [Facebook]()
-- [LinkedIn]()
+- [Instagram](https://www.instagram.com/adrianars20/profilecard/?igsh=eW42cXphbTdseGRp)
+- [Facebook](https://www.facebook.com/Tony.Adry)
+- [LinkedIn](https://linkedin.com/in/adriana-rs1805)
 
 ***
 
