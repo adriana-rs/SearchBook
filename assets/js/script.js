@@ -177,32 +177,6 @@ function handleScroll() {
     };
 }
 
-//Funzione per il cambio tema
-function toggleTheme() {
-    const body = document.body;
-    const themeButton = document.getElementById('themeToggle');
-    const darkMode = body.classList.contains('dark-mode');
-
-    if(darkMode) {
-        body.classList.remove('darke-mode');
-        themeButton.innerHTML = '🌙';
-    } else {
-        body.classList.add('dark-mode');
-        themeButton.innerHTML = '☀️';
-    }
-
-    localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
-}
-
-// Carica la preferenza del tema salvata
-function loadTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if(savedTheme === 'dark') {
-        document.body.classList.add('dark-mode');
-        document.getElementById('themeToggle').innerHTML = '☀️';
-    }
-}
-
 // Funzione per inizializzare gli eventListener
 function init() {
 // Aggiungo EventListener al bottore per la ricerca 
@@ -213,6 +187,15 @@ document.getElementById('categoryInput').addEventListener('keydown', function (e
     if(event.key === 'Enter') {
         searchBook();
         }
+    });
+
+// Impostazioni per il tema chiaro/ scuro
+document.getElementById('themeToggle').addEventListener('click', () => {
+    const isLight = document.body.classList.contains('light');
+
+    document.body.classList.toggle('light', !isLight);
+    document.body.classList.toggle('dark', isLight);
+    document.getElementById('themeToggle').textContent = isLight ? '☀️' : '🌙';
     });
 }
 
