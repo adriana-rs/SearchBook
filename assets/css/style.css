@@ -33,10 +33,26 @@ header {
     align-items: center;
 }
 
-#themeToggle {
-    font-size: 20px;
-    padding: 10px;
+body.light {
+    background-color: #ffffff;
+    color: #202124;
 }
+
+body.dark {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+button, input[type="text"], #bookList li {
+    background-color: #ffffff;
+    color: #202124;
+}
+
+body.dark button, body.dark input[type="text"], body.dark #bookList li {
+    background-color: #333333;
+    color: #ffffff;
+}
+
 
 a {
     text-decoration: none;
