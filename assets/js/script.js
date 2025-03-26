@@ -205,6 +205,5 @@ function initializeApp() {
     handleScroll();
 }
 
-// Chiamata a funzione per inizializzare tutto
-initializeApp();
-
+// Esegue la funzione quando il Dom è pronto
+window.addEventListener('DOMContentLoaded', initializeApp);
