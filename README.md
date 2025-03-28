@@ -60,15 +60,15 @@ I libri che vengono aggiunti ai preferiti vengono salvati nel localStorage del b
 
 1. Inserisci una categoria (ad esempio "fantasy", "history", ecc.) nel campo di input.
 
-2. Clicca sul pulsante "Cerca" oppure premi "Enter" per recuperare i libri relativi a quella categoria.
+2. Clicca sul pulsante "Search" oppure premi "Enter" per recuperare i libri relativi a quella categoria.
 
 3. I libri verranno visualizzati con il titolo, gli autori e un pulsante per mostrare la descrizione.
 
-4. Clicca sul pulsante "Mostra descrizione" per vedere ulteriori dettagli sul libro.
+4. Clicca sul pulsante "Show description" per vedere ulteriori dettagli sul libro.
 
 ## Gestire i Libri Preferiti
 
-1. Clicca sull'icona a forma di cuore (🤍) accanto a un libro per aggiungerlo ai preferiti.
+1. Clicca sull'icona a forma di cuore (🤍) accanto ad un libro per aggiungerlo ai preferiti.
 
 2. Una volta aggiunto, il cuore diventerà pieno (❤️).
 
